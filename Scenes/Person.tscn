@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgcnh34ssd3wv"]
+
+[ext_resource type="Texture2D" uid="uid://djy2sfkckgwjm" path="res://Images/male.png" id="1_4gtuk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kp2l1"]
+radius = 241.0
+height = 618.0
+
+[node name="Person" type="Node2D"]
+position = Vector2(0, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(465, 324)
+scale = Vector2(0.225433, 0.212062)
+texture = ExtResource("1_4gtuk")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(136, 163)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(328, 161)
+shape = SubResource("CapsuleShape2D_kp2l1")
+
+[node name="Photo" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Photo"]
