@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\familytree\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|c:\\users\\user\\documents\\familytree\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|C:\\Users\\user\\Documents\\familytree\\marriage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:marriage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|C:\\Users\\user\\Documents\\familytree\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|c:\\users\\user\\documents\\familytree\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|C:\\Users\\user\\Documents\\familytree\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|C:\\Users\\user\\Documents\\familytree\\personmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:personmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,52 +30,39 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PersonModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\PersonModel.cs",
+              "RelativeDocumentMoniker": "PersonModel.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\familytree\\PersonModel.cs",
+              "RelativeToolTip": "PersonModel.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T19:51:05.789Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Marriage.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\Marriage.cs",
-              "RelativeDocumentMoniker": "Marriage.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\familytree\\Marriage.cs",
-              "RelativeToolTip": "Marriage.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T19:52:49.627Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "AppDbContext.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\familytree\\AppDbContext.cs",
-              "RelativeToolTip": "AppDbContext.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAA1wCgAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T18:46:03.362Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "Main.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\Main.cs",
               "RelativeDocumentMoniker": "Main.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\familytree\\Main.cs",
               "RelativeToolTip": "Main.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABuAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T17:48:38.01Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Person.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\Person.cs",
               "RelativeDocumentMoniker": "Person.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\familytree\\Person.cs",
               "RelativeToolTip": "Person.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABQAAAAWAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwDIAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T17:15:38.685Z",
               "EditorCaption": ""
