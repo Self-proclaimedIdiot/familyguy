@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using Godot;
 namespace FamilyTree
 {
 	public class PersonModel
@@ -61,5 +62,16 @@ namespace FamilyTree
 		[BsonElement("motherId")]
 		[BsonRepresentation(BsonType.ObjectId)]
 		public string? MotherId { get; set; }
+		public List<Person> Children { get
+			{
+				List<PersonModel> models =  _source.Find(p => IsMale?p.FatherId == Id:p.MotherId == Id).ToList();
+				List<Person> Children = new List<Person>();
+				foreach (var model in models)
+				{
+					model.SetSource(_source);
+					Children.Add(new Person { model = model });
+				}
+				return Children;
+			} }
 	}
 }
