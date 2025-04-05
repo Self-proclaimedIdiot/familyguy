@@ -1,4 +1,5 @@
-res://Scenes/Person.tscn
 res://main.tscn
+res://Scenes/Person.tscn
 res://Main.cs
 res://Person.cs
+res://PersonModel.cs
