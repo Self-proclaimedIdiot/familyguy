@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgcnh34ssd3wv"]
+[gd_scene load_steps=4 format=3 uid="uid://dgcnh34ssd3wv"]
 
 [ext_resource type="Texture2D" uid="uid://djy2sfkckgwjm" path="res://Images/male.png" id="1_4gtuk"]
+[ext_resource type="Script" path="res://Person.cs" id="1_504o4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kp2l1"]
 radius = 241.0
@@ -8,6 +9,7 @@ height = 618.0
 
 [node name="Person" type="Node2D"]
 position = Vector2(0, 3)
+script = ExtResource("1_504o4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(465, 324)

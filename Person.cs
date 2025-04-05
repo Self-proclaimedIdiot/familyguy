@@ -9,31 +9,21 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using System.Runtime.CompilerServices;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 
 namespace FamilyTree
 {
 	public partial class Person : Node2D
 	{
 		public PersonModel model;
-		public List<Person> GetAncestors(int generation)
+		public int Generation {  get; set; }
+		public void ClearDuplicates(List<Person> list)
 		{
-			List<Person> ancestors = new List<Person>();
-			if (model.Father != null)
-				ancestors.Add(model.Father);
-			if (model.Mother != null)
-				ancestors.Add(model.Mother);
-			if (generation > 1)
-			{
-				if(model.Father != null)
-				ancestors.AddRange(model.Father.GetAncestors(generation - 1));
-				if(model.Mother != null)
-				ancestors.AddRange(model.Mother.GetAncestors(generation - 1));
-			}
 			Dictionary<Person, int> repeats = new Dictionary<Person, int>();
-			foreach(Person p in ancestors)
+			foreach (Person p in list)
 			{
 				bool contains = false;
-				foreach(var id in repeats.Keys)
+				foreach (var id in repeats.Keys)
 				{
 					if (id.model.Id == p.model.Id)
 					{
@@ -46,12 +36,102 @@ namespace FamilyTree
 			}
 			foreach (var id in repeats.Keys)
 			{
-				for (int i = 0; i < repeats[id] - 1; i++)
+				list.RemoveAll(p => p.model.Id == id.model.Id);
+				list.Add(id);
+			}
+		}
+		public List<Person> GetAncestors(int generation)
+		{
+			List<Person> ancestors = new List<Person>();
+			Person father = model.Father;
+			Person mother = model.Mother;
+			if (father != null)
+			{
+				father.Generation = Generation + 1;
+				ancestors.Add(father);
+			}
+			if (mother != null)
+			{
+				mother .Generation = Generation + 1;
+				ancestors.Add(mother);
+			}
+			if (generation > 1)
+			{
+				if(father != null)
+				ancestors.AddRange(father.GetAncestors(generation - 1));
+				if(mother != null)
+				ancestors.AddRange(mother.GetAncestors(generation - 1));
+			}
+			ClearDuplicates(ancestors);
+			return ancestors;
+		}
+		public List<Person> GetOneGenerationAncestors(int generation)
+		{
+			List<Person> ancestors = new List<Person>();
+			if(generation == 1)
+			{
+				if (model.Father != null)
+					ancestors.Add(model.Father);
+				if(model.Mother != null)
+					ancestors.Add(model.Mother);
+			}
+			if (generation > 1)
+			{
+				if (model.Father != null)
+					ancestors.AddRange(model.Father.GetOneGenerationAncestors(generation - 1));
+				if (model.Mother != null)
+					ancestors.AddRange(model.Mother.GetOneGenerationAncestors(generation - 1));
+			}
+			ClearDuplicates(ancestors);
+			return ancestors;
+		}
+		public List<Person> GetChildren()
+		{
+			return model.Children;
+		}
+		//todo
+		public List<Person> GetFamily(int generation, int siblings_generation)
+		{
+			List<Person> ancestors = GetAncestors(generation);
+			List<Person> family = new List<Person>();
+			family.AddRange(ancestors);
+			List<Person> parents = GetOneGenerationAncestors(siblings_generation);
+			List<Person> children = new List<Person>();
+			bool has_children = true;
+			int current_generation = siblings_generation - 1;
+			while(has_children)
+			{
+				foreach(Person p in parents)
 				{
-					ancestors.Remove(id);
+					List<Person> ones_children = p.GetChildren();
+					foreach(Person p2 in ones_children)
+					{
+						p2.Generation = current_generation;
+					}
+					children.AddRange(ones_children);
+				}
+				if(children.Count == 0)
+					has_children = false;
+				else
+				{
+					family.AddRange(children);
+					parents = new List<Person>();
+					parents.AddRange(children);
+					children = new List<Person>();
+					current_generation--;
 				}
 			}
-			return ancestors;
+			ClearDuplicates(family);
+			return family;
+		}
+		public override void _Ready()
+		{
+		}
+
+		// Called every frame. 'delta' is the elapsed time since the previous frame.
+		public override void _Process(double delta)
+		{
+
 		}
 	}
 }
