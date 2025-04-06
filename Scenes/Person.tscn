@@ -12,7 +12,7 @@ position = Vector2(0, 3)
 script = ExtResource("1_504o4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(96, 120)
+position = Vector2(-1, -1)
 scale = Vector2(0.0861402, 0.081031)
 texture = ExtResource("1_4gtuk")
 
@@ -20,7 +20,7 @@ texture = ExtResource("1_4gtuk")
 position = Vector2(136, 163)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(331, -26)
+position = Vector2(-137, -163)
 shape = SubResource("CapsuleShape2D_kp2l1")
 
 [node name="Photo" type="Node2D" parent="."]
