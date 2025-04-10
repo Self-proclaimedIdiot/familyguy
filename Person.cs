@@ -17,6 +17,7 @@ namespace FamilyTree
 	{
 		public PersonModel model;
 		public int Generation {  get; set; }
+		public List<bool> GenderOffsets = new List<bool>();
 		public void ClearDuplicates(List<Person> list)
 		{
 			Dictionary<Person, int> repeats = new Dictionary<Person, int>();
@@ -48,11 +49,15 @@ namespace FamilyTree
 			if (father != null)
 			{
 				father.Generation = Generation + 1;
+				father.GenderOffsets.AddRange(GenderOffsets);
+				father.GenderOffsets.Add(true);
 				ancestors.Add(father);
 			}
 			if (mother != null)
 			{
-				mother .Generation = Generation + 1;
+				mother.Generation = Generation + 1;
+				father.GenderOffsets.AddRange(GenderOffsets);
+				mother.GenderOffsets.Add(false);
 				ancestors.Add(mother);
 			}
 			if (generation > 1)
@@ -62,7 +67,7 @@ namespace FamilyTree
 				if(mother != null)
 				ancestors.AddRange(mother.GetAncestors(generation - 1));
 			}
-			ClearDuplicates(ancestors);
+			//ClearDuplicates(ancestors);
 			return ancestors;
 		}
 		public List<Person> GetOneGenerationAncestors(int generation)
@@ -89,57 +94,93 @@ namespace FamilyTree
 		{
 			return model.Children;
 		}
-		//todo
-		public List<Person> GetFamily(int ancestorsDepth, int descendantsDepth)
-{
-	List<Person> family = new List<Person>();
-	
-	// Добавляем самого человека
-	this.Generation = 0;
-	family.Add(this);
-	
-	// Получаем предков
-	if (ancestorsDepth > 0)
-	{
-		var ancestors = GetAncestors(ancestorsDepth);
-		family.AddRange(ancestors);
-	}
-	
-	// Получаем потомков
-	if (descendantsDepth > 0)
-	{
-		var descendants = GetDescendants(descendantsDepth);
-		family.AddRange(descendants);
-	}
-	
-	ClearDuplicates(family);
-	return family;
-}
-
-private List<Person> GetDescendants(int depth)
-{
-	List<Person> descendants = new List<Person>();
-	
-	if (depth <= 0) return descendants;
-	
-	foreach (var child in model.Children)
-	{
-		child.Generation = -1; // Первое поколение потомков
-		descendants.Add(child);
-		
-		if (depth > 1)
+		public List <Person> GetSpouses() 
 		{
-			var grandChildren = child.GetDescendants(depth - 1);
-			foreach (var gc in grandChildren)
-			{
-				gc.Generation = -2; // Второе поколение потомков и т.д.
-			}
-			descendants.AddRange(grandChildren);
+			return model.Spouses;
 		}
-	}
+		public Person GetLastSpouse()
+		{
+			return model.Spouse;
+		}
+		//метод - нейронная дристня, но пока оставлю
+		public List<Person> GetFamily(int ancestorsDepth, int descendantsDepth)
+		{
+			List<Person> family = new List<Person>();
 	
-	return descendants;
-}
+			// Добавляем самого человека
+			this.Generation = 0;
+			family.Add(this);
+	
+			// Получаем предков
+			if (ancestorsDepth > 0)
+			{
+				var ancestors = GetAncestors(ancestorsDepth);
+				family.AddRange(ancestors);
+			}
+	
+			// Получаем потомков
+			if (descendantsDepth > 0)
+			{
+				var descendants = GetDescendants(descendantsDepth);
+				family.AddRange(descendants);
+			}
+	
+			ClearDuplicates(family);
+			return family;
+		}
+		public List<Person> GetFamilyNormal(int generation, int siblings_generation)
+		{
+			List<Person> ancestors = GetAncestors(generation);
+			List<Person> family = new List<Person>();
+			family.AddRange(ancestors);
+			List<Person> parents = GetOneGenerationAncestors(siblings_generation);
+			List<Person> children = new List<Person>();
+			bool has_children = true;
+			int current_generation = siblings_generation - 1;
+			while (has_children)
+			{
+				foreach (Person p in parents)
+				{
+					List<Person> ones_children = p.GetChildren();
+					foreach (Person p2 in ones_children)
+					{
+						p2.Generation = current_generation;
+					}
+					children.AddRange(ones_children);
+				}
+				if (children.Count == 0)
+					has_children = false;
+				else
+				{
+					family.AddRange(children);
+					parents = new List<Person>();
+					parents.AddRange(children);
+					children = new List<Person>();
+					current_generation--;
+				}
+			}
+			ClearDuplicates(family);
+			return family;
+		}
+
+		private List<Person> GetDescendants(int depth)
+		{
+			List<Person> descendants = new List<Person>();
+	
+			if (depth <= 0) return descendants;
+	
+			foreach (var child in model.Children)
+			{
+				child.Generation = Generation - 1; // Первое поколение потомков
+				descendants.Add(child);
+				if (depth > 1)
+				{
+					var grandChildren = child.GetDescendants(depth - 1);
+					descendants.AddRange(grandChildren);
+				}
+			}
+			return descendants;
+		}
 		public override void _Ready()
 		{
 		}

@@ -27,115 +27,135 @@ public partial class Main : Node2D
 	private const float SIBLING_OFFSET = 100f;   // Расстояние между братьями/сестрами
 	private const float GENDER_OFFSET = 100f;     // Смещение по полу для поколения 0
 
-	public void InitPerson(PersonModel model, int generation)
+	public void InitPerson(Person guy)
 	{
 		PackedScene scene = (PackedScene)GD.Load("res://Scenes/Person.tscn");
 		Person person = (Person)scene.Instantiate();
 		AddChild(person);
-		person.model = model;
-		person.Generation = generation;
+		person.model = guy.model;
+		person.Generation = guy.Generation;
 
 		Sprite2D sprite = person.GetChild<Sprite2D>(0);
-		sprite.Texture = (Texture2D)GD.Load(model.IsMale ? "res://Images/male.png" : "res://Images/female.png");
+		sprite.Texture = (Texture2D)GD.Load(guy.model.IsMale ? "res://Images/male.png" : "res://Images/female.png");
 
 		// Позиционируем персонажа
 		PositionPerson(person);
 	}
 
-	
-
-public override void _Ready()
-{
-	PersonModel Cain = people.Find(p => p.Id == "67ef00c0330b5bbd5b57a19d").First();
-	Cain.SetSource(people);
-	
-	// Очищаем предыдущие элементы (если есть)
-	foreach (Node child in GetChildren())
+	public void SetAllInPlace(List<Person> family)
 	{
-		if (child is Person)
+		int maxgen = family[0].Generation;
+		for(int i = 1;i < family.Count;i++)
 		{
-			child.QueueFree();
+			if (family[i].Generation > maxgen)
+				maxgen = family[i].Generation;
 		}
-	}
+		List<Person> elders = family.FindAll(p => p.Generation == maxgen);
 
-	// Создаем основного персонажа (поколение 0)
-	InitPerson(Cain, 0);
-	
-	// Получаем всех родственников
-	List<Person> family = new Person { model = Cain }.GetFamily(2, 2); // 2 поколения вверх и 2 вниз
-	
-	// Отображаем всех родственников с правильным позиционированием
-	foreach (var relative in family)
-	{
-		InitPerson(relative.model, relative.Generation);
 	}
-	
-	// Обновляем линии соединения
-	QueueRedraw();
-}
-
-private void PositionPerson(Person person)
-{
-	// Центральная позиция Cain (поколение 0)
-	Vector2 center = new Vector2(400, 300); // Центр экрана
-	
-	// Вертикальная позиция (ось Y)
-	float yPos = center.Y - person.Generation * GENERATION_OFFSET;
-	
-	// Горизонтальная позиция (ось X)
-	float xPos = center.X;
-	
-	if (person.Generation == 0)
+	public override void _Ready()
 	{
-		// Для поколения 0: мужчины справа, женщины слева
-		xPos += person.model.IsMale ? GENDER_OFFSET : -GENDER_OFFSET;
-	}
-	else if (person.Generation > 0) // Предки
-	{
-		// Распределяем предков по горизонтали
-		if (person.model.Father != null && person.model.Father.model.Id == person.model.Id)
-			xPos -= SIBLING_OFFSET;
-		else if (person.model.Mother != null && person.model.Mother.model.Id == person.model.Id)
-			xPos += SIBLING_OFFSET;
-	}
-	else // Потомки
-	{
-		// Распределяем потомков по горизонтали
-		xPos += SIBLING_OFFSET * (person.Generation * -1);
-	}
-	
-	person.Position = new Vector2(xPos, yPos);
-}
-
-public override void _Draw()
-{
-	base._Draw();
-	
-	// Получаем всех персонажей на сцене
-	var persons = GetChildren().OfType<Person>().ToList();
-	
-	foreach (var person in persons)
-	{
-		// Рисуем линии к родителям
-		if (person.model.Father != null)
+		PersonModel Cain = people.Find(p => p.Id == "67efd9cacb58e9fecc95e42a").First();
+		Cain.SetSource(people);
+		foreach (var p in new Person { model = Cain }.GetFamilyNormal(1, 1))
 		{
-			var father = persons.FirstOrDefault(p => p.model.Id == person.model.Father.model.Id);
-			if (father != null)
+			GD.Print(p.model.FirstName);
+		}
+		/*List<Person> family = new Person {model = Cain}.GetFamilyNormal(1,1);
+		foreach(Person person in family)
 			{
-				DrawLine(person.Position, father.Position, Colors.Blue, 2);
+				GD.Print(person.model.FirstName);
+			}
+		*.
+		// Очищаем предыдущие элементы (если есть)
+		/*foreach (Node child in GetChildren())
+		{
+			if (child is Person)
+			{
+				child.QueueFree();
 			}
 		}
+
+		// Создаем основного персонажа (поколение 0)
+		InitPerson(new Person { model = Cain });
+	
+		// Получаем всех родственников
+		List<Person> family = new Person { model = Cain }.GetFamily(2, 2); // 2 поколения вверх и 2 вниз
+	
+		// Отображаем всех родственников с правильным позиционированием
+		foreach (var relative in family)
+		{
+			InitPerson(relative);
+		}
+	
+		// Обновляем линии соединения
+		QueueRedraw();
+		*/
+	}
+
+
+	private void PositionPerson(Person person)
+	{
+		// Центральная позиция Cain (поколение 0)
+		Vector2 center = new Vector2(400, 300); // Центр экрана
+	
+		// Вертикальная позиция (ось Y)
+		float yPos = center.Y - person.Generation * GENERATION_OFFSET;
+	
+		// Горизонтальная позиция (ось X)
+		float xPos = center.X;
+	
+		if (person.Generation == 0)
+		{
+			// Для поколения 0: мужчины справа, женщины слева
+			xPos += person.model.IsMale ? GENDER_OFFSET : -GENDER_OFFSET;
+		}
+		else if (person.Generation > 0) // Предки
+		{
+			// Распределяем предков по горизонтали
+			if (person.model.Father != null && person.model.Father.model.Id == person.model.Id)
+				xPos -= SIBLING_OFFSET;
+			else if (person.model.Mother != null && person.model.Mother.model.Id == person.model.Id)
+				xPos += SIBLING_OFFSET;
+		}
+		else // Потомки
+		{
+			// Распределяем потомков по горизонтали
+			xPos += SIBLING_OFFSET * (person.Generation * -1);
+		}
+	
+		person.Position = new Vector2(xPos, yPos);
+	}
+
+	public override void _Draw()
+	{
+		base._Draw();
+	
+		// Получаем всех персонажей на сцене
+		var persons = GetChildren().OfType<Person>().ToList();
+	
+		foreach (var person in persons)
+		{
+			// Рисуем линии к родителям
+			if (person.model.Father != null)
+			{
+				var father = persons.FirstOrDefault(p => p.model.Id == person.model.Father.model.Id);
+				if (father != null)
+				{
+					DrawLine(person.Position, father.Position, Colors.Blue, 2);
+				}
+			}
 		
-		if (person.model.Mother != null)
-		{
-			var mother = persons.FirstOrDefault(p => p.model.Id == person.model.Mother.model.Id);
-			if (mother != null)
+			if (person.model.Mother != null)
 			{
-				DrawLine(person.Position, mother.Position, Colors.Red, 2);
+				var mother = persons.FirstOrDefault(p => p.model.Id == person.model.Mother.model.Id);
+				if (mother != null)
+				{
+					DrawLine(person.Position, mother.Position, Colors.Red, 2);
+				}
 			}
 		}
 	}
-}
 	
 	private void DrawFamilyLines()
 	{
@@ -163,10 +183,6 @@ public override void _Draw()
 			}
 		}
 	}
-
-
-
-
 
 
 	public override void _Process(double delta)
