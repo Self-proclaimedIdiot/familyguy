@@ -17,9 +17,9 @@ namespace FamilyTree
 	{
 		public PersonModel model;
 		public int Generation {  get; set; }
-		public List<bool> GenderOffsets = new List<bool>();
 		public void ClearDuplicates(List<Person> list)
 		{
+			Main main = GetParent<Main>();
 			Dictionary<Person, int> repeats = new Dictionary<Person, int>();
 			foreach (Person p in list)
 			{
@@ -37,27 +37,40 @@ namespace FamilyTree
 			}
 			foreach (var id in repeats.Keys)
 			{
-				list.RemoveAll(p => p.model.Id == id.model.Id);
-				list.Add(id);
+				if (repeats[id] > 1)
+				{
+					list.RemoveAll(p => p.model.Id == id.model.Id);
+					list.Add(id);
+					List<Person> people = main.GetChildren().OfType<Person>().ToList();
+					foreach (var ondel in people)
+					{
+						if (ondel.model.Id == id.model.Id)
+						{
+							main.RemoveChild(ondel);
+						}
+					}
+					main.AddChild(id);
+				}
 			}
 		}
 		public List<Person> GetAncestors(int generation)
 		{
+			Main main = GetParent<Main>();
 			List<Person> ancestors = new List<Person>();
 			Person father = model.Father;
 			Person mother = model.Mother;
 			if (father != null)
 			{
 				father.Generation = Generation + 1;
-				father.GenderOffsets.AddRange(GenderOffsets);
-				father.GenderOffsets.Add(true);
+				father = main.InitPerson(father.model);
+				father.Position = new Vector2(Position.X + (mother != null && model.IsMale?200:0), Position.Y - 300);
 				ancestors.Add(father);
 			}
 			if (mother != null)
 			{
 				mother.Generation = Generation + 1;
-				father.GenderOffsets.AddRange(GenderOffsets);
-				mother.GenderOffsets.Add(false);
+				mother = main.InitPerson(mother.model);
+				mother.Position = new Vector2(Position.X - (father != null && !model.IsMale ? 200 : 0), Position.Y - 300);
 				ancestors.Add(mother);
 			}
 			if (generation > 1)
@@ -67,7 +80,7 @@ namespace FamilyTree
 				if(mother != null)
 				ancestors.AddRange(mother.GetAncestors(generation - 1));
 			}
-			//ClearDuplicates(ancestors);
+			ClearDuplicates(ancestors);
 			return ancestors;
 		}
 		public List<Person> GetOneGenerationAncestors(int generation)

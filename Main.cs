@@ -27,19 +27,17 @@ public partial class Main : Node2D
 	private const float SIBLING_OFFSET = 100f;   // Расстояние между братьями/сестрами
 	private const float GENDER_OFFSET = 100f;     // Смещение по полу для поколения 0
 
-	public void InitPerson(Person guy)
+	public Person InitPerson(PersonModel model)
 	{
 		PackedScene scene = (PackedScene)GD.Load("res://Scenes/Person.tscn");
 		Person person = (Person)scene.Instantiate();
+		person.model = model;
 		AddChild(person);
-		person.model = guy.model;
-		person.Generation = guy.Generation;
-
 		Sprite2D sprite = person.GetChild<Sprite2D>(0);
-		sprite.Texture = (Texture2D)GD.Load(guy.model.IsMale ? "res://Images/male.png" : "res://Images/female.png");
-
+		sprite.Texture = (Texture2D)GD.Load(person.model.IsMale ? "res://Images/male.png" : "res://Images/female.png");
 		// Позиционируем персонажа
-		PositionPerson(person);
+		//PositionPerson(guy);
+		return person;
 	}
 
 	public void SetAllInPlace(List<Person> family)
@@ -55,12 +53,11 @@ public partial class Main : Node2D
 	}
 	public override void _Ready()
 	{
-		PersonModel Cain = people.Find(p => p.Id == "67efd9cacb58e9fecc95e42a").First();
+		PersonModel Cain = people.Find(p => p.Id == "67ef08f6613b520123b54646").First();
 		Cain.SetSource(people);
-		foreach (var p in new Person { model = Cain }.GetFamilyNormal(1, 1))
-		{
-			GD.Print(p.model.FirstName);
-		}
+		Person body = InitPerson(Cain);
+		body.Position = new Vector2(1000, 1000);
+		body.GetAncestors(3);
 		/*List<Person> family = new Person {model = Cain}.GetFamilyNormal(1,1);
 		foreach(Person person in family)
 			{
