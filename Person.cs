@@ -63,14 +63,14 @@ namespace FamilyTree
 			{
 				father.Generation = Generation + 1;
 				father = main.InitPerson(father.model);
-				father.Position = new Vector2(Position.X + (mother != null && model.IsMale?200:0), Position.Y - 300);
+				father.Position = new Vector2(Position.X + (mother != null?110*generation:0), Position.Y - 300);
 				ancestors.Add(father);
 			}
 			if (mother != null)
 			{
 				mother.Generation = Generation + 1;
 				mother = main.InitPerson(mother.model);
-				mother.Position = new Vector2(Position.X - (father != null && !model.IsMale ? 200 : 0), Position.Y - 300);
+				mother.Position = new Vector2(Position.X - (father != null?110*generation : 0), Position.Y - 300);
 				ancestors.Add(mother);
 			}
 			if (generation > 1)
@@ -193,6 +193,26 @@ namespace FamilyTree
 				}
 			}
 			return descendants;
+		}
+		public Person GetFatherOnScene()
+		{
+			List<Person> people = GetParent<Main>().GetChildren().OfType<Person>().ToList();
+			Person father = people.Find(p => p.model.Id == model.FatherId);
+			return father;
+		}
+		public Person GetMotherOnScene()
+		{
+			List<Person> people = GetParent<Main>().GetChildren().OfType<Person>().ToList();
+			Person mother = people.Find(p => p.model.Id == model.MotherId);
+			return mother;
+		}
+		public Person GetSpouseOnScene()
+		{
+			List<Person> people = GetParent<Main>().GetChildren().OfType<Person>().ToList();
+			Person spouse = null;
+			if (model.Spouse != null)
+				spouse = people.Find(p => p.model.Id == model.Spouse?.model.Id);
+			return spouse;
 		}
 		public override void _Ready()
 		{

@@ -35,6 +35,8 @@ public partial class Main : Node2D
 		AddChild(person);
 		Sprite2D sprite = person.GetChild<Sprite2D>(0);
 		sprite.Texture = (Texture2D)GD.Load(person.model.IsMale ? "res://Images/male.png" : "res://Images/female.png");
+		Label name = person.GetChild<Node2D>(3).GetChild<Label>(0);
+		name.Text = model.FirstName + " " + model.Surname + (model.HasSource()?"":"(source not loaded)");
 		// Позиционируем персонажа
 		//PositionPerson(guy);
 		return person;
@@ -53,11 +55,11 @@ public partial class Main : Node2D
 	}
 	public override void _Ready()
 	{
-		PersonModel Cain = people.Find(p => p.Id == "67ef08f6613b520123b54646").First();
+		PersonModel Cain = people.Find(p => p.Id == "67f9814bf26ba744d29bf701").First();
 		Cain.SetSource(people);
 		Person body = InitPerson(Cain);
-		body.Position = new Vector2(1000, 1000);
-		body.GetAncestors(3);
+		body.Position = new Vector2(1200, 1000);
+		body.GetAncestors(4);
 		/*List<Person> family = new Person {model = Cain}.GetFamilyNormal(1,1);
 		foreach(Person person in family)
 			{
@@ -134,22 +136,20 @@ public partial class Main : Node2D
 		foreach (var person in persons)
 		{
 			// Рисуем линии к родителям
-			if (person.model.Father != null)
+			var father = person.GetFatherOnScene();
+			if (father != null)
 			{
-				var father = persons.FirstOrDefault(p => p.model.Id == person.model.Father.model.Id);
-				if (father != null)
-				{
-					DrawLine(person.Position, father.Position, Colors.Blue, 2);
-				}
+				DrawLine(person.Position, father.Position, Colors.Blue, 2);
 			}
-		
-			if (person.model.Mother != null)
+			var mother = person.GetMotherOnScene();
+			if (mother != null)
 			{
-				var mother = persons.FirstOrDefault(p => p.model.Id == person.model.Mother.model.Id);
-				if (mother != null)
-				{
-					DrawLine(person.Position, mother.Position, Colors.Red, 2);
-				}
+				DrawLine(person.Position, mother.Position, Colors.Red, 2);
+			}
+			var spouse = person.GetSpouseOnScene();
+			if (spouse != null)
+			{
+				DrawLine(person.Position, spouse.Position, Colors.Green, 2);
 			}
 		}
 	}

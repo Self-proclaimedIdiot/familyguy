@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using Godot;
+using System.Reflection.Metadata.Ecma335;
 namespace FamilyTree
 {
 	public class PersonModel
@@ -20,6 +21,7 @@ namespace FamilyTree
 		{
 			_source = source;
 		}
+		public bool HasSource() => _source != null;
 		[BsonId]
 		[BsonRepresentation(BsonType.ObjectId)]
 		public string Id { get; set; }
@@ -83,6 +85,7 @@ namespace FamilyTree
 					if (models.Find(p => p.Id == (IsMale?child.MotherId:child.FatherId)) == null)
 					{
 						PersonModel spouse = _source.Find(p => p.Id == (IsMale ? child.MotherId : child.FatherId)).FirstOrDefaultAsync().Result;
+						if (spouse != null)
 						models.Add(spouse);
 					}
 				}

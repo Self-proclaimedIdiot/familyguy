@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\familytree\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|C:\\Users\\user\\Documents\\familytree\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|c:\\users\\user\\documents\\familytree\\personmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:personmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|c:\\users\\user\\documents\\familytree\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|C:\\Users\\user\\Documents\\familytree\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|C:\\Users\\user\\Documents\\familytree\\personmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:personmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|C:\\Users\\user\\Documents\\familytree\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -48,33 +48,31 @@
               "RelativeDocumentMoniker": "Main.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\familytree\\Main.cs",
               "RelativeToolTip": "Main.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAArwDcAAAACAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAvwCYAAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T17:48:38.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T17:48:38.01Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Person.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\Person.cs",
               "RelativeDocumentMoniker": "Person.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\familytree\\Person.cs",
               "RelativeToolTip": "Person.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAADgv0gAAABDAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAYwBMAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T17:15:38.685Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T17:15:38.685Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "PersonModel.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\PersonModel.cs",
               "RelativeDocumentMoniker": "PersonModel.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\familytree\\PersonModel.cs",
               "RelativeToolTip": "PersonModel.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAA3wGMAAAAZAAAA",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAcwFgAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-03T19:51:05.789Z",
               "EditorCaption": ""

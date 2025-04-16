@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgcnh34ssd3wv"]
+[gd_scene load_steps=5 format=3 uid="uid://dgcnh34ssd3wv"]
 
 [ext_resource type="Texture2D" uid="uid://djy2sfkckgwjm" path="res://Images/male.png" id="1_4gtuk"]
 [ext_resource type="Script" path="res://Person.cs" id="1_504o4"]
@@ -6,6 +6,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kp2l1"]
 radius = 94.0
 height = 242.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_f372r"]
+font_size = 23
+font_color = Color(1, 1, 0.243137, 1)
 
 [node name="Person" type="Node2D"]
 position = Vector2(0, 3)
@@ -26,3 +30,15 @@ shape = SubResource("CapsuleShape2D_kp2l1")
 [node name="Photo" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Photo"]
+
+[node name="Name" type="Node2D" parent="."]
+position = Vector2(-1, 125)
+
+[node name="Label" type="Label" parent="Name"]
+offset_left = -141.0
+offset_top = -29.0
+offset_right = 140.0
+offset_bottom = 31.0
+text = "Вася Пупкин"
+label_settings = SubResource("LabelSettings_f372r")
+horizontal_alignment = 1
