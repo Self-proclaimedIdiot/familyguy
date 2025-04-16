@@ -137,19 +137,27 @@ public partial class Main : Node2D
 		{
 			// Рисуем линии к родителям
 			var father = person.GetFatherOnScene();
-			if (father != null)
+			/*if (father != null)
 			{
 				DrawLine(person.Position, father.Position, Colors.Blue, 2);
-			}
+			}*/
 			var mother = person.GetMotherOnScene();
-			if (mother != null)
+			/*if (mother != null)
 			{
 				DrawLine(person.Position, mother.Position, Colors.Red, 2);
-			}
+			}*/
 			var spouse = person.GetSpouseOnScene();
 			if (spouse != null)
 			{
 				DrawLine(person.Position, spouse.Position, Colors.Green, 2);
+			}
+			if (mother != null && father != null)
+			{
+				DrawLine(person.Position, new Vector2((father.Position.X + mother.Position.X) / 2, father.Position.Y), Colors.Green, 2);
+			}
+			else if (mother != null || father != null)
+			{
+				DrawLine(person.Position, father != null ? father.Position : mother.Position, Colors.Green, 2);
 			}
 		}
 	}

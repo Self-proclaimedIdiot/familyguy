@@ -175,6 +175,20 @@ namespace FamilyTree
 			ClearDuplicates(family);
 			return family;
 		}
+		public List<Person> GetSiblings()
+		{
+			List<Person> siblings = new List<Person>();
+			List<Person> father_children = model.Father.GetChildren();
+			List<Person> mother_children = model.Mother.GetChildren();
+			foreach(Person child in father_children)
+			{
+				if (mother_children.Find(p => p.model.Id == child.model.Id) != null)
+				{
+					siblings.Add(child);
+				}
+			}
+			return siblings;
+		}
 
 		private List<Person> GetDescendants(int depth)
 		{
