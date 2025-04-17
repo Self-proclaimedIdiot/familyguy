@@ -35,6 +35,7 @@ public partial class Main : Node2D
 		AddChild(person);
 		Sprite2D sprite = person.GetChild<Sprite2D>(0);
 		sprite.Texture = (Texture2D)GD.Load(person.model.IsMale ? "res://Images/male.png" : "res://Images/female.png");
+		//labele.Texture = (Texture2D)GD.Load("res://Images/label.png");
 		Label name = person.GetChild<Node2D>(3).GetChild<Label>(0);
 		name.Text = model.FirstName + " " + model.Surname + (model.HasSource()?"":"(source not loaded)");
 		// Позиционируем персонажа

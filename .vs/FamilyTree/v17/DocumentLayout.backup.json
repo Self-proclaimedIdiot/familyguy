@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "Main.cs",
               "ToolTip": "D:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0427\u041F\u041E\u041A2\\Godot\\familyguy\\Main.cs",
               "RelativeToolTip": "Main.cs",
-              "ViewState": "AgIAALkAAAAAAAAAAAAYwP8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAuwCsAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T17:48:38.01Z",
               "EditorCaption": ""
@@ -57,9 +57,10 @@
               "RelativeDocumentMoniker": "Person.cs",
               "ToolTip": "D:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0427\u041F\u041E\u041A2\\Godot\\familyguy\\Person.cs",
               "RelativeToolTip": "Person.cs",
-              "ViewState": "AQIAAKIAAAAAAAAAAAAIwLoAAAAXAAAA",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAAwIsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T17:15:38.685Z"
+              "WhenOpened": "2025-04-02T17:15:38.685Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -69,9 +70,10 @@
               "RelativeDocumentMoniker": "PersonModel.cs",
               "ToolTip": "D:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0427\u041F\u041E\u041A2\\Godot\\familyguy\\PersonModel.cs",
               "RelativeToolTip": "PersonModel.cs",
-              "ViewState": "AQIAAGEAAAAAAAAAAAAiwFgAAAAGAAAA",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwFgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T19:51:05.789Z"
+              "WhenOpened": "2025-04-03T19:51:05.789Z",
+              "EditorCaption": ""
             }
           ]
         }
