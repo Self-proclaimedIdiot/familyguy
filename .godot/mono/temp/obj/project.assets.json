@@ -48,37 +48,37 @@
           "buildTransitive/net6.0/EntityFramework.targets": {}
         }
       },
-      "Godot.SourceGenerators/4.3.0": {
+      "Godot.SourceGenerators/4.4.1": {
         "type": "package",
         "build": {
           "build/Godot.SourceGenerators.props": {}
         }
       },
-      "GodotSharp/4.3.0": {
+      "GodotSharp/4.4.1": {
         "type": "package",
         "compile": {
-          "lib/net6.0/GodotSharp.dll": {
+          "lib/net8.0/GodotSharp.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/GodotSharp.dll": {
+          "lib/net8.0/GodotSharp.dll": {
             "related": ".xml"
           }
         }
       },
-      "GodotSharpEditor/4.3.0": {
+      "GodotSharpEditor/4.4.1": {
         "type": "package",
         "dependencies": {
-          "GodotSharp": "4.3.0"
+          "GodotSharp": "4.4.1"
         },
         "compile": {
-          "lib/net6.0/GodotSharpEditor.dll": {
+          "lib/net8.0/GodotSharpEditor.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/GodotSharpEditor.dll": {
+          "lib/net8.0/GodotSharpEditor.dll": {
             "related": ".xml"
           }
         }
@@ -844,43 +844,43 @@
         "tools/net6.0/any/ef6.runtimeconfig.json"
       ]
     },
-    "Godot.SourceGenerators/4.3.0": {
-      "sha512": "fLDNOAo/kpL1JtGXP6b2M48dobzb5YmKSRLXKDt+td8qegu0Ao3H25avoySVmrb52d7zpe8yvgMwba7QMhqnqQ==",
+    "Godot.SourceGenerators/4.4.1": {
+      "sha512": "V/cuX41BxippWGD79zrP2bhqfXkuyiy9OFuCkTu3flo7I6STSJca637TL2phe7rzROIFre0vQR1+PAMdsjO3zg==",
       "type": "package",
-      "path": "godot.sourcegenerators/4.3.0",
+      "path": "godot.sourcegenerators/4.4.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "analyzers/dotnet/cs/Godot.SourceGenerators.dll",
         "build/Godot.SourceGenerators.props",
-        "godot.sourcegenerators.4.3.0.nupkg.sha512",
+        "godot.sourcegenerators.4.4.1.nupkg.sha512",
         "godot.sourcegenerators.nuspec"
       ]
     },
-    "GodotSharp/4.3.0": {
-      "sha512": "mEwRmNIG2k/yPfkFencEkNVXpHCa+uETHkIQcq0MxcsfwJQZ4HueFU5Q9CYDIdd5YrRPqjwuyxbsuD6Je8lfdQ==",
+    "GodotSharp/4.4.1": {
+      "sha512": "ghnQEo5LikQPfbCYcVxje8epffNCiyNG4zvGWUDRZRC1O+653+yqG3wdxk3+5RZsA3jaRuGKRavsGcnhLKe12g==",
       "type": "package",
-      "path": "godotsharp/4.3.0",
+      "path": "godotsharp/4.4.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "godotsharp.4.3.0.nupkg.sha512",
+        "godotsharp.4.4.1.nupkg.sha512",
         "godotsharp.nuspec",
-        "lib/net6.0/GodotSharp.dll",
-        "lib/net6.0/GodotSharp.xml"
+        "lib/net8.0/GodotSharp.dll",
+        "lib/net8.0/GodotSharp.xml"
       ]
     },
-    "GodotSharpEditor/4.3.0": {
-      "sha512": "r7A3lszHS9/gIWoOb7w+MNtEjrD/NRX+9ACHq01GD2+lctu6eHsmlSTA0Ah1bjJDKs9rDZeSq+42zwXvtBsPzQ==",
+    "GodotSharpEditor/4.4.1": {
+      "sha512": "cc3nA24r/sjW8KxrNqfSQk4CQMQYcg/kYk5935R88IhGBdRuTH4miaBXPlzR/td5GR8i1oGtCMWyW8axpQ0DxA==",
       "type": "package",
-      "path": "godotsharpeditor/4.3.0",
+      "path": "godotsharpeditor/4.4.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "godotsharpeditor.4.3.0.nupkg.sha512",
+        "godotsharpeditor.4.4.1.nupkg.sha512",
         "godotsharpeditor.nuspec",
-        "lib/net6.0/GodotSharpEditor.dll",
-        "lib/net6.0/GodotSharpEditor.xml"
+        "lib/net8.0/GodotSharpEditor.dll",
+        "lib/net8.0/GodotSharpEditor.xml"
       ]
     },
     "Microsoft.CSharp/4.7.0": {
@@ -2097,28 +2097,33 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "EntityFramework >= 6.5.1",
-      "Godot.SourceGenerators >= 4.3.0",
-      "GodotSharp >= 4.3.0",
-      "GodotSharpEditor >= 4.3.0",
+      "Godot.SourceGenerators >= 4.4.1",
+      "GodotSharp >= 4.4.1",
+      "GodotSharpEditor >= 4.4.1",
       "Microsoft.EntityFrameworkCore >= 7.0.20",
       "MongoDB.Driver >= 3.3.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.18"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {}
+    "C:\\Users\\Дмитрий\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\familytree\\FamilyTree.csproj",
+      "projectUniqueName": "D:\\переброс\\ЧПОК2\\Godot\\familyguy\\FamilyTree.csproj",
       "projectName": "FamilyTree",
-      "projectPath": "C:\\Users\\user\\Documents\\familytree\\FamilyTree.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\familytree\\.godot\\mono\\temp\\obj\\",
+      "projectPath": "D:\\переброс\\ЧПОК2\\Godot\\familyguy\\FamilyTree.csproj",
+      "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
+      "outputPath": "D:\\переброс\\ЧПОК2\\Godot\\familyguy\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Дмитрий\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2126,6 +2131,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2143,7 +2149,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -2155,15 +2162,15 @@
           },
           "Godot.SourceGenerators": {
             "target": "Package",
-            "version": "[4.3.0, )"
+            "version": "[4.4.1, )"
           },
           "GodotSharp": {
             "target": "Package",
-            "version": "[4.3.0, )"
+            "version": "[4.4.1, )"
           },
           "GodotSharpEditor": {
             "target": "Package",
-            "version": "[4.3.0, )"
+            "version": "[4.4.1, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -2194,7 +2201,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

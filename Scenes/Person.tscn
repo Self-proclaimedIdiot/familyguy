@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgcnh34ssd3wv"]
 
 [ext_resource type="Texture2D" uid="uid://djy2sfkckgwjm" path="res://Images/male.png" id="1_4gtuk"]
-[ext_resource type="Script" path="res://Person.cs" id="1_504o4"]
+[ext_resource type="Script" uid="uid://bhmvkme8pvsf0" path="res://Person.cs" id="1_504o4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kp2l1"]
 radius = 94.0
