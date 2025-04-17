@@ -1,16 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgcnh34ssd3wv"]
+[gd_scene load_steps=7 format=3 uid="uid://dgcnh34ssd3wv"]
 
 [ext_resource type="Texture2D" uid="uid://djy2sfkckgwjm" path="res://Images/male.png" id="1_4gtuk"]
 [ext_resource type="Script" uid="uid://bhmvkme8pvsf0" path="res://Person.cs" id="1_504o4"]
 [ext_resource type="Texture2D" uid="uid://bs1xpq43dl7c" path="res://Images/label.png" id="3_wb8pt"]
+[ext_resource type="FontFile" uid="uid://b1xf5ryyy43xe" path="res://Images/Slovic_Demo-Historic.otf" id="4_04mrr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kp2l1"]
 radius = 94.0
 height = 242.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_f372r"]
+font = ExtResource("4_04mrr")
 font_size = 23
-font_color = Color(1, 1, 0.243137, 1)
+font_color = Color(1, 0.966667, 0, 1)
+outline_size = 8
+outline_color = Color(0.51, 0, 0, 1)
+shadow_size = 0
 
 [node name="Person" type="Node2D"]
 position = Vector2(0, 3)
@@ -41,11 +46,10 @@ texture = ExtResource("3_wb8pt")
 position = Vector2(-1, 125)
 
 [node name="Label" type="Label" parent="Name"]
-modulate = Color(0, 0, 0, 1)
-offset_left = -142.0
-offset_top = -21.0
-offset_right = 139.0
-offset_bottom = 39.0
+offset_left = -140.0
+offset_top = -20.0
+offset_right = 141.0
+offset_bottom = 40.0
 text = "Вася Пупкин"
 label_settings = SubResource("LabelSettings_f372r")
 horizontal_alignment = 1
