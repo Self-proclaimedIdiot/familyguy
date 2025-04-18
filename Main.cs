@@ -35,6 +35,7 @@ public partial class Main : Node2D
 		AddChild(person);
 		Sprite2D sprite = person.GetChild<Sprite2D>(0);
 		sprite.Texture = (Texture2D)GD.Load(person.model.IsMale ? "res://Images/male.png" : "res://Images/female.png");
+		//labele.Texture = (Texture2D)GD.Load("res://Images/label.png");
 		Label name = person.GetChild<Node2D>(3).GetChild<Label>(0);
 		name.Text = model.FirstName + " " + model.Surname + (model.HasSource()?"":"(source not loaded)");
 		// Позиционируем персонажа
@@ -194,45 +195,63 @@ public partial class Main : Node2D
 	{
 		// Обработка зума колесиком мыши только при зажатом Ctrl
 		float zoomFactor = 0.0f;
-		float scrollDirection = 0.0f;
-		
+		float scrollDirectionY = 0.0f;
+		float scrollDirectionX = 0.0f;
+
 		if (Input.IsActionJustReleased("zoom_in") && Input.IsKeyPressed(Key.Ctrl))
 		{
-			zoomFactor = zoomSpeed; 
+			zoomFactor = zoomSpeed;
 		}
 		else if (Input.IsActionJustReleased("zoom_out") && Input.IsKeyPressed(Key.Ctrl))
 		{
-			zoomFactor = -zoomSpeed; 
+			zoomFactor = -zoomSpeed;
+		}
+		else if (Input.IsActionJustReleased("zoom_in") && Input.IsKeyPressed(Key.Alt))
+		{
+			scrollDirectionX = -scrollSpeed; // Перемещение вправо (при увеличении)
+		}
+		else if (Input.IsActionJustReleased("zoom_out") && Input.IsKeyPressed(Key.Alt))
+		{
+			scrollDirectionX = scrollSpeed; // Перемещение влево (при уменьшении)
 		}
 		else if (Input.IsActionJustReleased("zoom_in"))
 		{
-			scrollDirection = scrollSpeed; // Перемещение вниз
+			scrollDirectionY = scrollSpeed; // Перемещение вниз
 		}
 		else if (Input.IsActionJustReleased("zoom_out"))
 		{
-			scrollDirection = -scrollSpeed; // Перемещение вверх
+			scrollDirectionY = -scrollSpeed; // Перемещение вверх
 		}
+
 
 		if (zoomFactor != 0.0f)
 		{
 			// Получаем позицию мыши в мировых координатах до зума
 			zoomCenter = GetGlobalMousePosition();
-			
-			// Применяем зум
+
+			// Применяем зум (БЕЗ ОГРАНИЧЕНИЙ)
 			float oldZoom = zoomLevel;
-			zoomLevel = Mathf.Clamp(zoomLevel + zoomFactor, minZoom, maxZoom);
-			
+			zoomLevel += zoomFactor; // Убрали Mathf.Clamp()
+
+			// Защита от нулевого или отрицательного зума (чтобы не было ошибок)
+			if (zoomLevel <= 0.01f) zoomLevel = 0.01f; // Минимальное значение, близкое к нулю
+
 			// Вычисляем смещение для центрирования на курсоре
 			Vector2 offset = zoomCenter - Position;
 			Position += offset - (offset * zoomLevel / oldZoom);
-			
+
 			// Применяем масштаб
 			Scale = new Vector2(zoomLevel, zoomLevel);
 		}
-		else if (scrollDirection != 0.0f)
+		else if (scrollDirectionY != 0.0f)
 		{
 			// Перемещаем сцену вверх или вниз
-			Position += new Vector2(0, scrollDirection);
+			Position += new Vector2(0, scrollDirectionY);
+		}
+		else if (scrollDirectionX != 0.0f)
+		{
+			// Перемещаем сцену влево или вправо
+			Position += new Vector2(scrollDirectionX, 0);
 		}
 	}
 }
