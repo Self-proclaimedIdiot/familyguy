@@ -1,4 +1,4 @@
-<<<<<<< HEAD
 res://main.tscn
-=======
->>>>>>> 3407d4a1bd37caa65050ec49e53c5788c6045ae1
+res://Scenes/Person.tscn
+res://Main.cs
+res://Person.cs

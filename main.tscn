@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvhjrhab2fcij"]
 
-[ext_resource type="Script" uid="uid://cvsbajblpbu7p" path="res://Main.cs" id="1_2pvgt"]
+[ext_resource type="Script" path="res://Main.cs" id="1_2pvgt"]
 [ext_resource type="Texture2D" uid="uid://g6cccvkk8aaj" path="res://Images/wood_bg.jpg" id="2_0xm2m"]
 
 [node name="Main" type="Node2D"]

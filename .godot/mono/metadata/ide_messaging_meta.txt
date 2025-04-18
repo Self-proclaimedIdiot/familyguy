@@ -1,2 +1,2 @@
-﻿61395
-D:/переброс/Godot_v4.4.1-stable_mono_win64/Godot_v4.4.1-stable_mono_win64.exe
+﻿62436
+C:/Users/user/Downloads/Godot_v4.3-stable_mono_win64/Godot_v4.3-stable_mono_win64/Godot_v4.3-stable_mono_win64.exe

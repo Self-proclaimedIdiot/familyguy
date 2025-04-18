@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0427\u041F\u041E\u041A2\\Godot\\familyguy\\",
+  "WorkspaceRootPath": "C:\\Users\\user\\Documents\\familytree\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|d:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0447\u043F\u043E\u043A2\\godot\\familyguy\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|c:\\users\\user\\documents\\familytree\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|d:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0447\u043F\u043E\u043A2\\godot\\familyguy\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|C:\\Users\\user\\Documents\\familytree\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|d:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0447\u043F\u043E\u043A2\\godot\\familyguy\\personmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|C:\\Users\\user\\Documents\\familytree\\personmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E27AF728-37F7-4808-AAEE-37CC1CA4D0AC}|FamilyTree.csproj|solutionrelative:personmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -40,11 +40,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Main.cs",
-              "DocumentMoniker": "D:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0427\u041F\u041E\u041A2\\Godot\\familyguy\\Main.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\Main.cs",
               "RelativeDocumentMoniker": "Main.cs",
-              "ToolTip": "D:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0427\u041F\u041E\u041A2\\Godot\\familyguy\\Main.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\familytree\\Main.cs",
               "RelativeToolTip": "Main.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAuwCsAAAACAAAAAAAAAA==",
+              "ViewState": "AQIAAJMAAAAAAAAAAAAowAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T17:48:38.01Z",
               "EditorCaption": ""
@@ -53,27 +53,25 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Person.cs",
-              "DocumentMoniker": "D:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0427\u041F\u041E\u041A2\\Godot\\familyguy\\Person.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\Person.cs",
               "RelativeDocumentMoniker": "Person.cs",
-              "ToolTip": "D:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0427\u041F\u041E\u041A2\\Godot\\familyguy\\Person.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\familytree\\Person.cs",
               "RelativeToolTip": "Person.cs",
               "ViewState": "AgIAAHcAAAAAAAAAAAAAwIsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T17:15:38.685Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T17:15:38.685Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "PersonModel.cs",
-              "DocumentMoniker": "D:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0427\u041F\u041E\u041A2\\Godot\\familyguy\\PersonModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\PersonModel.cs",
               "RelativeDocumentMoniker": "PersonModel.cs",
-              "ToolTip": "D:\\\u043F\u0435\u0440\u0435\u0431\u0440\u043E\u0441\\\u0427\u041F\u041E\u041A2\\Godot\\familyguy\\PersonModel.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\familytree\\PersonModel.cs",
               "RelativeToolTip": "PersonModel.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAiwFgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T19:51:05.789Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T19:51:05.789Z"
             }
           ]
         }
