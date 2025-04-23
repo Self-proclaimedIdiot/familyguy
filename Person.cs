@@ -53,6 +53,15 @@ namespace FamilyTree
 				}
 			}
 		}
+		public void OnHover()
+		{
+			if (GetSiblings().Count > 0)
+			Modulate = Color.FromHtml("#1298af");
+		}
+		public void OnLeft()
+		{
+			Modulate = Colors.White;
+		}
 		public List<Person> GetAncestors(int generation)
 		{
 			Main main = GetParent<Main>();
@@ -63,14 +72,14 @@ namespace FamilyTree
 			{
 				father.Generation = Generation + 1;
 				father = main.InitPerson(father.model);
-				father.Position = new Vector2(Position.X + (mother != null?110*generation:0), Position.Y - 300);
+				father.Position = new Vector2(Position.X + (mother != null?300*generation - 100 *(generation +3): 0), Position.Y - 300);
 				ancestors.Add(father);
 			}
 			if (mother != null)
 			{
 				mother.Generation = Generation + 1;
 				mother = main.InitPerson(mother.model);
-				mother.Position = new Vector2(Position.X - (father != null?110*generation : 0), Position.Y - 300);
+				mother.Position = new Vector2(Position.X - (father != null?300*generation - 100 *(generation+3): 0), Position.Y - 300);
 				ancestors.Add(mother);
 			}
 			if (generation > 1)
@@ -178,11 +187,11 @@ namespace FamilyTree
 		public List<Person> GetSiblings()
 		{
 			List<Person> siblings = new List<Person>();
-			List<Person> father_children = model.Father.GetChildren();
-			List<Person> mother_children = model.Mother.GetChildren();
-			foreach(Person child in father_children)
+			List<Person> father_children = model.Father != null?model.Father.GetChildren():new List<Person>();
+			List<Person> mother_children = model.Mother != null ? model.Mother.GetChildren() : new List<Person>();
+			foreach (Person child in father_children)
 			{
-				if (mother_children.Find(p => p.model.Id == child.model.Id) != null)
+				if (mother_children.Find(p => p.model.Id == child.model.Id) != null && child.model.Id != model.Id)
 				{
 					siblings.Add(child);
 				}
@@ -230,6 +239,8 @@ namespace FamilyTree
 		}
 		public override void _Ready()
 		{
+			GetChild<Area2D>(1).Connect("mouse_entered", new Callable(this, "OnHover"));
+			GetChild<Area2D>(1).Connect("mouse_exited", new Callable(this, "OnLeft"));
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.

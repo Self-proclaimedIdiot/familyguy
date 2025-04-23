@@ -54,6 +54,56 @@ public partial class Main : Node2D
 		List<Person> elders = family.FindAll(p => p.Generation == maxgen);
 
 	}
+	public Person RayCastCheckForPerson()
+	{
+		var spaceState = GetWorld2D().DirectSpaceState;
+		var parameters = new PhysicsPointQueryParameters2D
+		{
+			Position = GetGlobalMousePosition(),
+			CollideWithAreas = true,
+			CollisionMask = 1,
+		};
+		var points = spaceState.IntersectPoint(parameters);
+		if(points.Count > 0)
+		{
+			return points[0]["collider"].As<Area2D>().GetParent<Person>();
+		}
+		else return null;
+	}
+	public override void _Input(InputEvent @event)
+	{
+		if (@event is InputEventMouseButton && (@event as InputEventMouseButton).ButtonIndex == MouseButton.Left)
+		{
+			if (@event.IsPressed())
+			{
+				Person person = RayCastCheckForPerson();
+				if(person != null)
+				{
+					List<Person> siblings = person.GetSiblings();
+					if (siblings.Count > 0)
+					{
+						if(person.model.IsMale)
+						siblings.Add(person);
+						siblings.Sort((p1,p2) => p1.model.BirthDate >  p2.model.BirthDate?1:-1);
+						if (!person.model.IsMale)
+						siblings.Add(person);
+						float center = (person.model.Father != null && person.model.Mother != null ?
+							(person.GetFatherOnScene().Position.X + person.GetMotherOnScene().Position.X) / 2 : person.Position.X);
+						int number = 0;
+						foreach(Person p in siblings)
+						{
+							Person current = GetChildren().OfType<Person>().ToList().Find(P => p.model.Id == P.model.Id);
+							if (current == null)
+							current = InitPerson(p.model);
+							current.Position = new Vector2(center + 200 * (siblings.Count % 2 == 0?number - siblings.Count/2 + (number - siblings.Count/2 >= 0?1:0):number - siblings.Count/2), person.Position.Y);
+							number++;
+						}
+						QueueRedraw();
+					}
+				}
+			}
+		}
+	}
 	public override void _Ready()
 	{
 		PersonModel Cain = people.Find(p => p.Id == "67f9814bf26ba744d29bf701").First();

@@ -22,8 +22,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Main.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\Main.cs",
+              "RelativeDocumentMoniker": "Main.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\familytree\\Main.cs",
+              "RelativeToolTip": "Main.cs",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAgwFcAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T17:48:38.01Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -38,28 +52,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Main.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\Main.cs",
-              "RelativeDocumentMoniker": "Main.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\familytree\\Main.cs",
-              "RelativeToolTip": "Main.cs",
-              "ViewState": "AQIAAJMAAAAAAAAAAAAowAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T17:48:38.01Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Person.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\familytree\\Person.cs",
               "RelativeDocumentMoniker": "Person.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\familytree\\Person.cs",
               "RelativeToolTip": "Person.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAAwIsAAAABAAAAAAAAAA==",
+              "ViewState": "AQIAAM0AAAAAAAAAAAAuwO4AAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T17:15:38.685Z"
+              "WhenOpened": "2025-04-02T17:15:38.685Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -69,9 +71,10 @@
               "RelativeDocumentMoniker": "PersonModel.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\familytree\\PersonModel.cs",
               "RelativeToolTip": "PersonModel.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAiwFgAAAAGAAAAAAAAAA==",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T19:51:05.789Z"
+              "WhenOpened": "2025-04-03T19:51:05.789Z",
+              "EditorCaption": ""
             }
           ]
         }
