@@ -72,14 +72,14 @@ namespace FamilyTree
 			{
 				father.Generation = Generation + 1;
 				father = main.InitPerson(father.model);
-				father.Position = new Vector2(Position.X + (mother != null?300*generation - 100 *(generation +3): 0), Position.Y - 300);
+				father.Position = new Vector2(Position.X + (mother != null?320*generation - 100 *(generation +3): 0), Position.Y - 300);
 				ancestors.Add(father);
 			}
 			if (mother != null)
 			{
 				mother.Generation = Generation + 1;
 				mother = main.InitPerson(mother.model);
-				mother.Position = new Vector2(Position.X - (father != null?300*generation - 100 *(generation+3): 0), Position.Y - 300);
+				mother.Position = new Vector2(Position.X - (father != null?320*generation - 100 *(generation+3): 0), Position.Y - 300);
 				ancestors.Add(mother);
 			}
 			if (generation > 1)

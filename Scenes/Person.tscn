@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dgcnh34ssd3wv"]
 
 [ext_resource type="Texture2D" uid="uid://djy2sfkckgwjm" path="res://Images/male.png" id="1_4gtuk"]
-[ext_resource type="Script" path="res://Person.cs" id="1_504o4"]
+[ext_resource type="Script" uid="uid://bhmvkme8pvsf0" path="res://Person.cs" id="1_504o4"]
 [ext_resource type="Texture2D" uid="uid://bs1xpq43dl7c" path="res://Images/label.png" id="3_wb8pt"]
 [ext_resource type="FontFile" uid="uid://b1xf5ryyy43xe" path="res://Images/Slovic_Demo-Historic.otf" id="4_04mrr"]
 
